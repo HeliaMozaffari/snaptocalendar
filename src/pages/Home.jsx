@@ -19,7 +19,7 @@ export default function Home() {
       {/* Header */}
       <div className="max-w-2xl mx-auto px-6 pt-16 pb-10 text-center">
         <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight">helia & lucky</h1>
-        <p className="text-gray-400 mt-2 text-base">A small collection of tools we built for ourselves — and you.</p>
+        <p className="text-gray-400 mt-2 text-base">A small collection of tools we built for ourselves and you.</p>
       </div>
 
       {/* Product Grid */}
