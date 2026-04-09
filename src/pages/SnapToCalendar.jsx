@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
 import ImageUpload from "../components/ImageUpload";
 import AppointmentCard from "../components/AppointmentCard";
@@ -6,6 +6,12 @@ import UserHeader from "../components/UserHeader";
 import InstallBanner from "../components/InstallBanner";
 
 export default function SnapToCalendar() {
+  useEffect(() => {
+    base44.auth.isAuthenticated().then((authed) => {
+      if (!authed) base44.auth.redirectToLogin();
+    });
+  }, []);
+
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [appointment, setAppointment] = useState(null);
