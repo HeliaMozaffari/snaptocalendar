@@ -21,7 +21,7 @@ export default function Home() {
       width: "100%",
       background: "linear-gradient(160deg, #c8954a 0%, #a0692a 40%, #8B5E1A 100%)",
       display: "flex",
-      alignItems: "stretch",
+      alignItems: "flex-start",
       justifyContent: "center",
       padding: "16px",
       boxSizing: "border-box",
@@ -34,12 +34,9 @@ export default function Home() {
         padding: "14px 12px",
         background: "linear-gradient(135deg, #d4a55a 0%, #b07830 25%, #c89040 50%, #8B5E1A 75%, #c89040 100%)",
         boxShadow: "0 10px 50px rgba(0,0,0,0.55), inset 0 1px 3px rgba(255,255,255,0.2), inset 0 -3px 6px rgba(0,0,0,0.3)",
-        display: "flex",
-        flexDirection: "column",
       }}>
         {/* Cork board inner */}
         <div style={{
-          flex: 1,
           borderRadius: 10,
           position: "relative",
           overflow: "hidden",
