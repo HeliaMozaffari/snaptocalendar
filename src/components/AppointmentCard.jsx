@@ -9,12 +9,29 @@ const confidenceInfo = (c) => {
 
 const pad = (n) => String(n).padStart(2, "0");
 
+const sanitize = (str) => (str || "").replace(/[\r\n]+/g, " ").replace(/,/g, "\\,").replace(/;/g, "\\;");
+
+const safeDate = (dateStr) => {
+  if (!dateStr) return new Date().toISOString().slice(0, 10);
+  const d = new Date(dateStr);
+  return isNaN(d) ? new Date().toISOString().slice(0, 10) : dateStr;
+};
+
+const safeTime = (timeStr) => {
+  if (!timeStr) return [9, 0];
+  const parts = timeStr.split(":").map(Number);
+  const h = isNaN(parts[0]) ? 9 : Math.min(Math.max(parts[0], 0), 23);
+  const m = isNaN(parts[1]) ? 0 : Math.min(Math.max(parts[1], 0), 59);
+  return [h, m];
+};
+
 const downloadICS = (appt) => {
-  const [hour, minute] = appt.time.split(":").map(Number);
-  const totalEnd = hour * 60 + minute + (parseInt(appt.duration_minutes) || 60);
+  const [hour, minute] = safeTime(appt.time);
+  const duration = Math.max(parseInt(appt.duration_minutes) || 60, 1);
+  const totalEnd = hour * 60 + minute + duration;
   const endHour = Math.floor(totalEnd / 60) % 24;
   const endMin = totalEnd % 60;
-  const dateStr = appt.date.replace(/-/g, "");
+  const dateStr = safeDate(appt.date).replace(/-/g, "");
 
   const lines = [
     "BEGIN:VCALENDAR",
@@ -24,11 +41,11 @@ const downloadICS = (appt) => {
     "METHOD:PUBLISH",
     "BEGIN:VEVENT",
     `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, "").split(".")[0]}Z`,
-    `SUMMARY:${appt.title}`,
+    `SUMMARY:${sanitize(appt.title || "Appointment")}`,
     `DTSTART:${dateStr}T${pad(hour)}${pad(minute)}00`,
     `DTEND:${dateStr}T${pad(endHour)}${pad(endMin)}00`,
-    appt.location ? `LOCATION:${appt.location}` : null,
-    `DESCRIPTION:${appt.notes || ""}`,
+    appt.location ? `LOCATION:${sanitize(appt.location)}` : null,
+    `DESCRIPTION:${sanitize(appt.notes)}`,
     `UID:snaptocalendar-${Date.now()}@app`,
     "END:VEVENT",
     "END:VCALENDAR",
