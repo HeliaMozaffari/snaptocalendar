@@ -8,7 +8,7 @@ const products = [
     icon: <Calendar className="w-7 h-7 text-violet-600" />,
     iconBg: "bg-violet-100",
     accent: "from-violet-600 to-blue-500",
-    href: "https://snaptocalendar.heliaandlucky.com",
+    href: "https://heliaandlucky.com/snaptocalendar",
     badge: "Free to use",
   },
 ];
