@@ -50,9 +50,13 @@ export default function Home() {
     setStep("processing");
 
     try {
+      // First upload the file to get a real URL
+      const uploadRes = await base44.integrations.Core.UploadFile({ file });
+      const fileUrl = uploadRes.file_url;
+
       const response = await base44.integrations.Core.InvokeLLM({
         prompt: EXTRACTION_PROMPT,
-        file_urls: [previewUrl],
+        file_urls: [fileUrl],
       });
 
       let parsed = null;
