@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import UserHeader from "../components/UserHeader";
 import InstallBanner from "../components/InstallBanner";
 import { base44 } from "@/api/base44Client";
@@ -40,10 +40,15 @@ Example if no appointment:
 null`;
 
 export default function Home() {
-  const [step, setStep] = useState("upload"); // upload | processing | result | no-result
+  const [step, setStep] = useState("upload");
   const [imagePreview, setImagePreview] = useState(null);
   const [appointment, setAppointment] = useState(null);
   const [error, setError] = useState(null);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    base44.auth.me().then(setUser).catch(() => {});
+  }, []);
 
   const handleImageSelect = async (file, previewUrl) => {
     setImagePreview(previewUrl);
@@ -115,7 +120,21 @@ export default function Home() {
         )}
 
         {step === "upload" && (
-          <ImageUpload onImageSelect={handleImageSelect} />
+          user ? (
+            <ImageUpload onImageSelect={handleImageSelect} />
+          ) : (
+            <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 text-center">
+              <div className="text-4xl mb-3">🔒</div>
+              <p className="font-semibold text-gray-800 mb-1">Sign in to continue</p>
+              <p className="text-sm text-gray-400 mb-6">You need an account to scan screenshots and save appointments.</p>
+              <button
+                onClick={() => base44.auth.redirectToLogin()}
+                className="w-full py-3 bg-violet-600 text-white font-semibold rounded-2xl active:scale-95 transition-transform"
+              >
+                Sign in
+              </button>
+            </div>
+          )
         )}
 
         {step === "processing" && (
