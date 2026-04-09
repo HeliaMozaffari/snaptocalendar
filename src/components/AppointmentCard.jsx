@@ -12,21 +12,30 @@ const pad = (n) => String(n).padStart(2, "0");
 const sanitize = (str) => (str || "").replace(/[\r\n]+/g, " ").replace(/,/g, "\\,").replace(/;/g, "\\;");
 
 const safeDate = (dateStr) => {
-  if (!dateStr) return new Date().toISOString().slice(0, 10);
+  if (!dateStr) return null;
   const d = new Date(dateStr);
-  return isNaN(d) ? new Date().toISOString().slice(0, 10) : dateStr;
+  return isNaN(d) ? null : dateStr;
 };
 
 const safeTime = (timeStr) => {
-  if (!timeStr) return [9, 0];
+  if (!timeStr) return null;
   const parts = timeStr.split(":").map(Number);
-  const h = isNaN(parts[0]) ? 9 : Math.min(Math.max(parts[0], 0), 23);
-  const m = isNaN(parts[1]) ? 0 : Math.min(Math.max(parts[1], 0), 59);
-  return [h, m];
+  const h = parts[0];
+  const m = parts[1];
+  if (isNaN(h) || isNaN(m)) return null;
+  return [Math.min(Math.max(h, 0), 23), Math.min(Math.max(m, 0), 59)];
+};
+
+const getMissingFields = (appt) => {
+  const missing = [];
+  if (!safeDate(appt.date)) missing.push("Date");
+  if (!safeTime(appt.time)) missing.push("Time");
+  return missing;
 };
 
 const downloadICS = (appt) => {
-  const [hour, minute] = safeTime(appt.time);
+  const time = safeTime(appt.time);
+  const [hour, minute] = time;
   const duration = Math.max(parseInt(appt.duration_minutes) || 60, 1);
   const totalEnd = hour * 60 + minute + duration;
   const endHour = Math.floor(totalEnd / 60) % 24;
@@ -82,8 +91,10 @@ export default function AppointmentCard({ appointment, imagePreview, onReset }) 
 
   const set = (key) => (val) => setAppt((prev) => ({ ...prev, [key]: val }));
   const conf = confidenceInfo(appt.confidence);
+  const missingFields = getMissingFields(appt);
 
   const handleDownload = () => {
+    if (missingFields.length > 0) return;
     downloadICS(appt);
     setDownloaded(true);
     setTimeout(() => setDownloaded(false), 3000);
@@ -158,13 +169,26 @@ export default function AppointmentCard({ appointment, imagePreview, onReset }) 
         </>
       )}
 
+      {/* Missing fields warning */}
+      {missingFields.length > 0 && (
+        <div className="bg-red-50 border border-red-400 rounded-2xl px-4 py-3">
+          <p className="text-sm font-semibold text-red-600 mb-1">⚠️ Missing required fields — please fill in before proceeding:</p>
+          <ul className="list-disc list-inside text-sm text-red-500">
+            {missingFields.map((f) => <li key={f}>{f}</li>)}
+          </ul>
+        </div>
+      )}
+
       {/* CTA */}
       <button
         onClick={handleDownload}
-        className={`w-full py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg
-          ${downloaded
-            ? "bg-green-500 text-white shadow-green-200"
-            : "bg-violet-600 text-white shadow-violet-200 hover:bg-violet-700"
+        disabled={missingFields.length > 0}
+        className={`w-full py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 transition-all shadow-lg
+          ${missingFields.length > 0
+            ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+            : downloaded
+              ? "bg-green-500 text-white shadow-green-200 active:scale-95"
+              : "bg-violet-600 text-white shadow-violet-200 hover:bg-violet-700 active:scale-95"
           }`}
       >
         {downloaded ? "✓ Download started!" : <><Download className="w-5 h-5" /> Add to Calendar</>}
