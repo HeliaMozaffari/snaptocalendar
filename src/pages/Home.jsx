@@ -1,4 +1,5 @@
 import { useState } from "react";
+import UserHeader from "../components/UserHeader";
 import InstallBanner from "../components/InstallBanner";
 import { base44 } from "@/api/base44Client";
 import ImageUpload from "../components/ImageUpload";
@@ -72,6 +73,8 @@ export default function Home() {
       }
 
       if (parsed && typeof parsed === "object" && parsed.title) {
+        // Save to database
+        base44.entities.Appointment.create(parsed).catch(() => {});
         setAppointment(parsed);
         setStep("result");
       } else {
@@ -93,8 +96,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-violet-50 via-white to-blue-50">
       <InstallBanner />
+      <UserHeader />
       {/* Header */}
-      <div className="px-4 pt-12 pb-6 text-center">
+      <div className="px-4 pt-8 pb-6 text-center">
         <div className="inline-flex items-center justify-center w-14 h-14 bg-violet-600 rounded-2xl shadow-lg mb-4">
           <Calendar className="w-7 h-7 text-white" />
         </div>
