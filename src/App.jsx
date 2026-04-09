@@ -7,6 +7,7 @@ import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import Home from './pages/Home';
 import SnapToCalendar from './pages/SnapToCalendar';
+import AdminStats from './pages/AdminStats';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -32,6 +33,7 @@ const AuthenticatedApp = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/snaptocalendar" element={<SnapToCalendar />} />
+      <Route path="/admin/stats" element={<AdminStats />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
