@@ -176,7 +176,7 @@ export default function Home() {
                     lineHeight: 1.8,
                   }}
                 >
-                  helia, lucky<br />&amp; the little horse
+                  Helia the human<br />&amp; Lucky the Bordercollie
                 </p>
               </div>
             </div>
