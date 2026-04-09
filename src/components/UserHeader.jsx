@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
-import { LogOut, User, LogIn } from "lucide-react";
+import { LogOut, User, LogIn, Calendar } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 
 export default function UserHeader() {
   const [user, setUser] = useState(null);
+  const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    base44.auth.me().then(setUser).catch(() => {}).finally(() => setLoading(false));
+    base44.auth.me()
+      .then((u) => {
+        setUser(u);
+        return base44.entities.Appointment.filter({ created_by: u.email });
+      })
+      .then((list) => setCount(list.length))
+      .catch(() => {})
+      .finally(() => setLoading(false));
   }, []);
 
   if (loading) return null;
@@ -33,6 +41,10 @@ export default function UserHeader() {
           <User className="w-3.5 h-3.5 text-violet-600" />
         </div>
         <span className="text-xs font-medium text-gray-700 max-w-[120px] truncate">{user.full_name || user.email}</span>
+      </div>
+      <div className="flex items-center gap-1.5 bg-violet-50 border border-violet-100 rounded-2xl px-3 py-2">
+        <Calendar className="w-3.5 h-3.5 text-violet-500" />
+        <span className="text-xs font-semibold text-violet-700">{count} scans</span>
       </div>
       <button
         onClick={() => base44.auth.logout()}
