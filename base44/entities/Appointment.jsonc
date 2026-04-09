@@ -17,6 +17,9 @@
     "client_name": {
       "type": "string"
     },
+    "client_phone": {
+      "type": "string"
+    },
     "location": {
       "type": "string"
     },
@@ -25,6 +28,21 @@
     },
     "confidence": {
       "type": "number"
+    },
+    "platform": {
+      "type": "string"
+    },
+    "service_type": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "raw_snippet": {
+      "type": "string"
     },
     "user_name": {
       "type": "string"

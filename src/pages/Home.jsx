@@ -12,7 +12,7 @@ const EXTRACTION_PROMPT = `You are an AI assistant that extracts appointment det
 
 The input is an image of a screenshot of a conversation (WhatsApp, Instagram DMs, iMessage, SMS, etc). The text may be messy, informal, incomplete, or contain multiple messages.
 
-Your task is to determine whether an appointment or booking is being confirmed, and extract the relevant details.
+Your task is to determine whether an appointment or booking is being confirmed, and extract as much detail as possible.
 
 Return ONLY raw valid JSON — no markdown fences, no explanation.
 
@@ -22,9 +22,15 @@ Fields:
 - time (HH:MM, 24h format)
 - duration_minutes (number, default 60 if missing)
 - client_name (string or null)
+- client_phone (string or null — any phone number visible)
 - location (string or null)
-- notes (string)
+- notes (string — any extra context, reminders, or instructions)
 - confidence (number 0 to 1)
+- platform (string — best guess: "WhatsApp", "Instagram", "iMessage", "SMS", "Telegram", "Other")
+- service_type (string or null — e.g. "Haircut", "Consultation", "Meeting", "Massage")
+- price (string or null — any price or cost mentioned, e.g. "$50", "150 NIS")
+- language (string — ISO 639-1 code of the conversation language, e.g. "en", "he", "es")
+- raw_snippet (string — a short verbatim excerpt of the most relevant part of the conversation, max 300 chars)
 
 Rules:
 - Understand natural language like "tomorrow", "this Friday" — today's date is ${TODAY}
@@ -34,7 +40,7 @@ Rules:
 - Lower confidence if guessing
 
 Example if appointment found:
-{"title":"Haircut","date":"2026-04-10","time":"14:00","duration_minutes":60,"client_name":"John","location":"Main St Salon","notes":"Confirmed via DM","confidence":0.9}
+{"title":"Haircut","date":"2026-04-10","time":"14:00","duration_minutes":60,"client_name":"John","client_phone":"+1-555-0100","location":"Main St Salon","notes":"Confirmed via DM","confidence":0.9,"platform":"WhatsApp","service_type":"Haircut","price":"$40","language":"en","raw_snippet":"Sure, see you Thursday at 2pm!"}
 
 Example if no appointment:
 null`;
