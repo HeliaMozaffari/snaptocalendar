@@ -1,293 +1,271 @@
 const AVATAR_URL = "https://media.base44.com/images/public/69d72179891bde79c8a7ee1a/6027bd016_ChatGPTImageApr3202610_06_23AM.png";
 
-const pins = [
-  { color: "#e74c3c", top: "6%", left: "22%" },
-  { color: "#3498db", top: "8%", left: "58%" },
-  { color: "#2ecc71", top: "38%", left: "10%" },
-  { color: "#f39c12", top: "55%", left: "42%" },
-  { color: "#9b59b6", top: "72%", left: "68%" },
-  { color: "#e74c3c", top: "80%", left: "20%" },
-  { color: "#3498db", top: "15%", left: "88%" },
-];
-
 function Pin({ color, style }) {
   return (
-    <div
-      style={{
-        width: 14,
-        height: 14,
-        borderRadius: "50%",
-        background: color,
-        boxShadow: `0 2px 6px rgba(0,0,0,0.4), inset 0 -2px 3px rgba(0,0,0,0.2)`,
-        position: "absolute",
-        zIndex: 10,
-        ...style,
-      }}
-    />
+    <div style={{
+      position: "absolute",
+      width: 16, height: 16,
+      borderRadius: "50%",
+      background: `radial-gradient(circle at 35% 35%, ${color}ee, ${color}88)`,
+      boxShadow: `0 3px 8px rgba(0,0,0,0.45), inset 0 -2px 3px rgba(0,0,0,0.2), inset 0 1px 2px rgba(255,255,255,0.4)`,
+      zIndex: 20,
+      ...style,
+    }} />
   );
 }
 
 export default function Home() {
   return (
-    <div
-      className="min-h-screen flex items-center justify-center p-4"
-      style={{ background: "#8B6914" }}
-    >
+    <div style={{
+      minHeight: "100vh",
+      width: "100%",
+      background: "linear-gradient(160deg, #c8954a 0%, #a0692a 40%, #8B5E1A 100%)",
+      display: "flex",
+      alignItems: "stretch",
+      justifyContent: "center",
+      padding: "16px",
+      boxSizing: "border-box",
+    }}>
       {/* Wooden frame */}
-      <div
-        className="relative w-full max-w-2xl rounded-2xl"
-        style={{
-          background: "linear-gradient(135deg, #c8954a 0%, #a0692a 30%, #c8954a 60%, #8B5E1A 100%)",
-          padding: "18px",
-          boxShadow: "0 8px 40px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.15)",
-        }}
-      >
-        {/* Cork surface */}
-        <div
-          className="relative w-full rounded-xl overflow-hidden"
-          style={{
-            minHeight: 580,
-            background: "radial-gradient(ellipse at 30% 20%, #d4a96a 0%, #c49050 30%, #b8803a 60%, #c49050 100%)",
+      <div style={{
+        width: "100%",
+        maxWidth: 700,
+        borderRadius: 18,
+        padding: "14px 12px",
+        background: "linear-gradient(135deg, #d4a55a 0%, #b07830 25%, #c89040 50%, #8B5E1A 75%, #c89040 100%)",
+        boxShadow: "0 10px 50px rgba(0,0,0,0.55), inset 0 1px 3px rgba(255,255,255,0.2), inset 0 -3px 6px rgba(0,0,0,0.3)",
+        display: "flex",
+        flexDirection: "column",
+      }}>
+        {/* Cork board inner */}
+        <div style={{
+          flex: 1,
+          borderRadius: 10,
+          position: "relative",
+          overflow: "hidden",
+          padding: "20px 16px 24px",
+          minHeight: "calc(100vh - 60px)",
+          // Realistic cork texture using layered gradients + SVG noise
+          background: `
+            radial-gradient(ellipse at 20% 15%, rgba(210,160,80,0.6) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 70%, rgba(160,100,30,0.4) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 50%, rgba(190,130,50,0.3) 0%, transparent 80%),
+            repeating-linear-gradient(
+              42deg,
+              transparent,
+              transparent 2px,
+              rgba(120,70,20,0.04) 2px,
+              rgba(120,70,20,0.04) 4px
+            ),
+            repeating-linear-gradient(
+              -42deg,
+              transparent,
+              transparent 3px,
+              rgba(100,60,10,0.03) 3px,
+              rgba(100,60,10,0.03) 5px
+            ),
+            #c49050
+          `,
+          boxShadow: "inset 0 3px 10px rgba(0,0,0,0.25), inset 0 -2px 6px rgba(0,0,0,0.15)",
+        }}>
+          {/* Cork grain dots */}
+          <div style={{
+            position: "absolute", inset: 0, zIndex: 0,
             backgroundImage: `
-              radial-gradient(ellipse at 30% 20%, #d4a96a 0%, #c49050 30%, #b8803a 60%, #c49050 100%),
-              url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='0.8' fill='%23a07030' opacity='0.3'/%3E%3Ccircle cx='3' cy='3' r='0.6' fill='%23906020' opacity='0.2'/%3E%3C/svg%3E")
+              radial-gradient(circle, rgba(100,60,10,0.15) 1px, transparent 1px),
+              radial-gradient(circle, rgba(160,100,30,0.1) 1px, transparent 1px)
             `,
-            boxShadow: "inset 0 2px 8px rgba(0,0,0,0.2)",
-            padding: "24px",
-          }}
-        >
-          {/* Floating pins */}
-          {pins.map((p, i) => (
-            <Pin key={i} color={p.color} style={{ top: p.top, left: p.left }} />
-          ))}
+            backgroundSize: "18px 18px, 31px 31px",
+            backgroundPosition: "0 0, 9px 9px",
+          }} />
 
-          {/* Header note - helia & lucky logo */}
-          <div className="flex items-center gap-3 mb-6">
-            <img
-              src={AVATAR_URL}
-              alt="helia & lucky"
-              className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-md"
-            />
-            <div
-              className="px-4 py-1.5 rounded-sm shadow-md"
-              style={{
-                background: "#fffde7",
-                fontFamily: "'Comic Sans MS', 'Chalkboard SE', cursive",
-                fontSize: 20,
-                fontWeight: "bold",
-                color: "#5d4037",
-                transform: "rotate(-1deg)",
-                boxShadow: "2px 3px 6px rgba(0,0,0,0.2)",
-              }}
-            >
-              helia &amp; lucky
-            </div>
-          </div>
+          {/* Content sits above grain */}
+          <div style={{ position: "relative", zIndex: 1 }}>
 
-          {/* Main layout: big photo note + sticky notes */}
-          <div className="flex gap-5 flex-wrap">
-
-            {/* Big lined notepad with avatar */}
-            <div
-              className="relative flex-shrink-0"
-              style={{
-                width: 200,
-                background: "white",
-                borderRadius: 4,
-                boxShadow: "3px 4px 12px rgba(0,0,0,0.25)",
-                transform: "rotate(-2deg)",
-                overflow: "hidden",
-              }}
-            >
-              {/* Spiral top */}
-              <div
-                style={{
-                  height: 18,
-                  background: "#e0e0e0",
-                  borderBottom: "2px solid #bdbdbd",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 10,
-                }}
-              >
-                {[...Array(8)].map((_, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      width: 10,
-                      height: 10,
-                      borderRadius: "50%",
-                      border: "2px solid #9e9e9e",
-                      background: "white",
-                    }}
-                  />
-                ))}
-              </div>
-              {/* Pin on notepad */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: 8,
-                  right: 16,
-                  width: 12,
-                  height: 12,
+            {/* Header row: logo + brand name */}
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
+              <div style={{ position: "relative", flexShrink: 0 }}>
+                <Pin color="#e74c3c" style={{ top: -6, left: "50%", transform: "translateX(-50%)" }} />
+                <div style={{
+                  width: 52, height: 52,
                   borderRadius: "50%",
-                  background: "#e74c3c",
-                  boxShadow: "0 2px 4px rgba(0,0,0,0.4)",
-                  zIndex: 5,
-                }}
-              />
-              {/* Avatar image */}
-              <img
-                src={AVATAR_URL}
-                alt="helia & lucky"
-                style={{ width: "100%", height: 180, objectFit: "cover" }}
-              />
-              {/* Lined area */}
-              <div style={{ padding: "8px 10px", paddingLeft: 28, position: "relative" }}>
-                {/* Red margin line */}
-                <div
-                  style={{
-                    position: "absolute",
-                    left: 22,
-                    top: 0,
-                    bottom: 0,
-                    width: 1,
-                    background: "#ffcdd2",
-                  }}
-                />
-                {[...Array(4)].map((_, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      height: 1,
-                      background: "#bbdefb",
-                      marginBottom: 10,
-                    }}
-                  />
-                ))}
-                <p
-                  style={{
-                    fontFamily: "'Comic Sans MS', cursive",
-                    fontSize: 11,
-                    color: "#5d4037",
-                    marginTop: -36,
-                    lineHeight: 1.8,
-                  }}
-                >
-                  Helia the human<br />&amp; Lucky the Bordercollie
-                </p>
+                  overflow: "hidden",
+                  border: "3px solid white",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.35)",
+                  marginTop: 4,
+                }}>
+                  <img src={AVATAR_URL} alt="logo" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                </div>
+              </div>
+              <div style={{
+                background: "linear-gradient(135deg, #fffde7, #fff9c4)",
+                padding: "8px 16px",
+                borderRadius: 3,
+                fontFamily: "'Comic Sans MS', 'Chalkboard SE', cursive",
+                fontSize: "clamp(16px, 4vw, 22px)",
+                fontWeight: "bold",
+                color: "#4e342e",
+                boxShadow: "2px 4px 8px rgba(0,0,0,0.25)",
+                transform: "rotate(-1.5deg)",
+                letterSpacing: 0.5,
+              }}>
+                helia &amp; lucky ✨
               </div>
             </div>
 
-            {/* Right side: sticky notes */}
-            <div className="flex flex-col gap-4 flex-1">
+            {/* Main grid */}
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+              gap: 20,
+            }}>
 
-              {/* SnapToCalendar sticky note */}
-              <a
-                href="https://heliaandlucky.com/snaptocalendar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group"
-                style={{
-                  background: "linear-gradient(135deg, #fff9c4, #fff176)",
-                  borderRadius: 4,
-                  padding: "16px 14px",
-                  boxShadow: "3px 4px 10px rgba(0,0,0,0.2)",
-                  transform: "rotate(1.5deg)",
-                  textDecoration: "none",
-                  position: "relative",
-                  transition: "transform 0.2s, box-shadow 0.2s",
-                }}
-                onMouseEnter={e => { e.currentTarget.style.transform = "rotate(1.5deg) scale(1.04)"; e.currentTarget.style.boxShadow = "5px 7px 16px rgba(0,0,0,0.3)"; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = "rotate(1.5deg)"; e.currentTarget.style.boxShadow = "3px 4px 10px rgba(0,0,0,0.2)"; }}
-              >
-                {/* Pin */}
-                <div
-                  style={{
-                    position: "absolute",
-                    top: -6,
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    width: 13,
-                    height: 13,
-                    borderRadius: "50%",
-                    background: "#2ecc71",
-                    boxShadow: "0 2px 5px rgba(0,0,0,0.4)",
-                  }}
-                />
-                <div
-                  style={{
-                    fontFamily: "'Comic Sans MS', 'Chalkboard SE', cursive",
-                    fontSize: 17,
-                    fontWeight: "bold",
-                    color: "#4a148c",
-                    marginBottom: 6,
-                  }}
-                >
-                  📸 SnapToCalendar
-                </div>
-                <div
-                  style={{
-                    fontFamily: "'Comic Sans MS', cursive",
-                    fontSize: 12,
-                    color: "#5d4037",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  Screenshot any convo and turn it into a calendar event instantly!
-                </div>
-                <div
-                  style={{
-                    marginTop: 10,
-                    fontFamily: "'Comic Sans MS', cursive",
-                    fontSize: 11,
-                    color: "#7b1fa2",
-                    fontWeight: "bold",
-                  }}
-                >
-                  tap to try it →
-                </div>
-              </a>
-
-              {/* Coming soon blank note */}
-              <div
-                style={{
+              {/* Big notepad with photo */}
+              <div style={{ position: "relative", alignSelf: "start" }}>
+                <Pin color="#f39c12" style={{ top: -8, left: "50%", transform: "translateX(-50%)" }} />
+                <div style={{
                   background: "white",
-                  borderRadius: 4,
-                  padding: "16px 14px",
-                  boxShadow: "3px 4px 10px rgba(0,0,0,0.15)",
-                  transform: "rotate(-1deg)",
-                  position: "relative",
-                  minHeight: 80,
-                }}
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    top: -6,
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    width: 13,
-                    height: 13,
-                    borderRadius: "50%",
-                    background: "#3498db",
-                    boxShadow: "0 2px 5px rgba(0,0,0,0.4)",
-                  }}
-                />
-                <div
-                  style={{
-                    fontFamily: "'Comic Sans MS', cursive",
-                    fontSize: 12,
-                    color: "#bdbdbd",
-                    fontStyle: "italic",
-                  }}
-                >
-                  more coming soon...
+                  borderRadius: "3px 3px 2px 2px",
+                  boxShadow: "3px 6px 18px rgba(0,0,0,0.3), 1px 2px 4px rgba(0,0,0,0.15)",
+                  overflow: "hidden",
+                  transform: "rotate(-2deg)",
+                  marginTop: 4,
+                }}>
+                  {/* Spiral binding */}
+                  <div style={{
+                    background: "linear-gradient(180deg, #e0e0e0, #bdbdbd)",
+                    height: 20,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 8,
+                    borderBottom: "1px solid #9e9e9e",
+                  }}>
+                    {[...Array(9)].map((_, i) => (
+                      <div key={i} style={{
+                        width: 11, height: 11,
+                        borderRadius: "50%",
+                        border: "2px solid #757575",
+                        background: "linear-gradient(135deg, #fff, #e0e0e0)",
+                        boxShadow: "inset 0 1px 2px rgba(0,0,0,0.2)",
+                      }} />
+                    ))}
+                  </div>
+                  {/* Photo */}
+                  <img src={AVATAR_URL} alt="helia & lucky" style={{
+                    width: "100%",
+                    height: "clamp(160px, 30vw, 220px)",
+                    objectFit: "cover",
+                    display: "block",
+                  }} />
+                  {/* Lined section */}
+                  <div style={{ padding: "10px 12px 12px 30px", position: "relative", background: "white" }}>
+                    <div style={{
+                      position: "absolute", left: 22, top: 0, bottom: 0,
+                      width: 1.5, background: "#ffcdd2",
+                    }} />
+                    {[...Array(3)].map((_, i) => (
+                      <div key={i} style={{ height: 1, background: "#bbdefb", marginBottom: 13 }} />
+                    ))}
+                    <p style={{
+                      fontFamily: "'Comic Sans MS', cursive",
+                      fontSize: "clamp(10px, 2.5vw, 13px)",
+                      color: "#37474f",
+                      marginTop: -36,
+                      lineHeight: 2,
+                    }}>
+                      Helia the human<br />&amp; Lucky the Bordercollie
+                    </p>
+                  </div>
                 </div>
               </div>
 
+              {/* Right column */}
+              <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+
+                {/* SnapToCalendar sticky */}
+                <div style={{ position: "relative" }}>
+                  <Pin color="#2ecc71" style={{ top: -8, left: "50%", transform: "translateX(-50%)" }} />
+                  <a
+                    href="https://heliaandlucky.com/snaptocalendar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "block",
+                      background: "linear-gradient(160deg, #fff9c4, #fff176 80%, #ffee58)",
+                      borderRadius: 3,
+                      padding: "18px 16px 16px",
+                      boxShadow: "3px 5px 14px rgba(0,0,0,0.25), 1px 2px 4px rgba(0,0,0,0.1)",
+                      transform: "rotate(1.8deg)",
+                      marginTop: 4,
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <div style={{
+                      fontFamily: "'Comic Sans MS', 'Chalkboard SE', cursive",
+                      fontSize: "clamp(15px, 4vw, 20px)",
+                      fontWeight: "bold",
+                      color: "#4a148c",
+                      marginBottom: 8,
+                    }}>
+                      📸 SnapToCalendar
+                    </div>
+                    <div style={{
+                      fontFamily: "'Comic Sans MS', cursive",
+                      fontSize: "clamp(11px, 2.5vw, 13px)",
+                      color: "#4e342e",
+                      lineHeight: 1.6,
+                      marginBottom: 10,
+                    }}>
+                      Screenshot any convo and turn it into a calendar event instantly!
+                    </div>
+                    <div style={{
+                      display: "inline-block",
+                      background: "#7b1fa2",
+                      color: "white",
+                      fontFamily: "'Comic Sans MS', cursive",
+                      fontSize: "clamp(10px, 2.5vw, 12px)",
+                      fontWeight: "bold",
+                      padding: "4px 12px",
+                      borderRadius: 20,
+                      boxShadow: "0 2px 6px rgba(123,31,162,0.4)",
+                    }}>
+                      tap to try it →
+                    </div>
+                  </a>
+                </div>
+
+                {/* Coming soon note */}
+                <div style={{ position: "relative" }}>
+                  <Pin color="#3498db" style={{ top: -8, left: "50%", transform: "translateX(-50%)" }} />
+                  <div style={{
+                    background: "linear-gradient(160deg, #f5f5f5, #eeeeee)",
+                    borderRadius: 3,
+                    padding: "16px 14px",
+                    boxShadow: "3px 5px 14px rgba(0,0,0,0.2)",
+                    transform: "rotate(-1.2deg)",
+                    marginTop: 4,
+                    minHeight: 80,
+                  }}>
+                    {/* Lines */}
+                    {[...Array(4)].map((_, i) => (
+                      <div key={i} style={{ height: 1, background: "#e0e0e0", marginBottom: 14 }} />
+                    ))}
+                    <p style={{
+                      fontFamily: "'Comic Sans MS', cursive",
+                      fontSize: "clamp(11px, 2.5vw, 13px)",
+                      color: "#9e9e9e",
+                      fontStyle: "italic",
+                      marginTop: -52,
+                      lineHeight: 2,
+                    }}>
+                      more coming soon...
+                    </p>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
