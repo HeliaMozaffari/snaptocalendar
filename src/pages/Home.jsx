@@ -4,7 +4,7 @@ const products = [
   {
     name: "SnapToCalendar",
     tagline: "Screenshot → Calendar event in seconds",
-    description: "Upload a screenshot of any conversation — WhatsApp, Instagram, iMessage — and instantly extract the appointment details into a calendar event.",
+        description: "Upload a screenshot of any conversation like WhatsApp, Instagram, or iMessage and instantly extract the appointment details into a calendar event.",
     icon: <Calendar className="w-7 h-7 text-violet-600" />,
     iconBg: "bg-violet-100",
     accent: "from-violet-600 to-blue-500",
