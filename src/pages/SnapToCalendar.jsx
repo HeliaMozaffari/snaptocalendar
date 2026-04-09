@@ -57,8 +57,9 @@ If you cannot find an appointment, still return the object with best guesses and
         },
       });
 
+      const me = await base44.auth.me();
       setAppointment(result);
-      await base44.entities.Appointment.create({ ...result, user_email: "" });
+      await base44.entities.Appointment.create({ ...result, user_email: me?.email || "", user_name: me?.full_name || "" });
     } catch (e) {
       setError("Something went wrong. Please try again.");
     } finally {
