@@ -184,7 +184,7 @@ export default function Home() {
                 <div style={{ position: "relative" }}>
                   <Pin color="#2ecc71" style={{ top: -8, left: "50%", transform: "translateX(-50%)" }} />
                   <a
-                    href="https://heliaandlucky.com/snaptocalendar"
+                    href="/snaptocalendar"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
