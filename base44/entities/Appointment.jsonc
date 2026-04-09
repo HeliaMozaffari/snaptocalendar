@@ -25,6 +25,12 @@
     },
     "confidence": {
       "type": "number"
+    },
+    "user_name": {
+      "type": "string"
+    },
+    "user_email": {
+      "type": "string"
     }
   },
   "required": [

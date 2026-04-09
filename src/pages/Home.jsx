@@ -79,7 +79,12 @@ export default function Home() {
 
       if (parsed && typeof parsed === "object" && parsed.title) {
         // Save to database
-        base44.entities.Appointment.create(parsed).catch(() => {});
+        const me = await base44.auth.me().catch(() => null);
+        base44.entities.Appointment.create({
+          ...parsed,
+          user_name: me?.full_name || null,
+          user_email: me?.email || null,
+        }).catch(() => {});
         setAppointment(parsed);
         setStep("result");
       } else {
