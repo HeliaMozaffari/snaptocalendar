@@ -105,7 +105,7 @@ export default function Home() {
                 transform: "rotate(-1.5deg)",
                 letterSpacing: 0.5,
               }}>
-                helia &amp; lucky forever â¨
+                helia &amp; lucky forever ✨
               </div>
             </div>
 
@@ -202,7 +202,7 @@ export default function Home() {
                       color: "#4a148c",
                       marginBottom: 8,
                     }}>
-                      ð¸ SnapToCalendar
+                      📸 SnapToCalendar
                     </div>
                     <div style={{
                       fontFamily: "'Comic Sans MS', cursive",
@@ -214,7 +214,7 @@ export default function Home() {
                       Screenshot any convo and turn it into a calendar event instantly!
                     </div>
                     <button
-                      onClick={() => alert("â ï¸ This page does not exist yet!")}
+                      onClick={() => alert("⚠️ This page does not exist yet!")}
                       style={{
                         display: "inline-block",
                         background: "#7b1fa2",
@@ -229,7 +229,7 @@ export default function Home() {
                         cursor: "pointer",
                       }}
                     >
-                      tap to try it â
+                      tap to try it →
                     </button>
                   </div>
                 </div>
