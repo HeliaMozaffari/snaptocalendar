@@ -42,7 +42,6 @@ export default function Home() {
           overflow: "hidden",
           padding: "20px 16px 24px",
           minHeight: "calc(100vh - 60px)",
-          // Realistic cork texture using layered gradients + SVG noise
           background: `
             radial-gradient(ellipse at 20% 15%, rgba(210,160,80,0.6) 0%, transparent 50%),
             radial-gradient(ellipse at 80% 70%, rgba(160,100,30,0.4) 0%, transparent 50%),
@@ -183,10 +182,7 @@ export default function Home() {
                 {/* SnapToCalendar sticky */}
                 <div style={{ position: "relative" }}>
                   <Pin color="#2ecc71" style={{ top: -8, left: "50%", transform: "translateX(-50%)" }} />
-                  <a
-                    href="/snaptocalendar"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <div
                     style={{
                       display: "block",
                       background: "linear-gradient(160deg, #fff9c4, #fff176 80%, #ffee58)",
@@ -217,20 +213,25 @@ export default function Home() {
                     }}>
                       Screenshot any convo and turn it into a calendar event instantly!
                     </div>
-                    <div style={{
-                      display: "inline-block",
-                      background: "#7b1fa2",
-                      color: "white",
-                      fontFamily: "'Comic Sans MS', cursive",
-                      fontSize: "clamp(10px, 2.5vw, 12px)",
-                      fontWeight: "bold",
-                      padding: "4px 12px",
-                      borderRadius: 20,
-                      boxShadow: "0 2px 6px rgba(123,31,162,0.4)",
-                    }}>
+                    <button
+                      onClick={() => alert("⚠️ This page does not exist yet!")}
+                      style={{
+                        display: "inline-block",
+                        background: "#7b1fa2",
+                        color: "white",
+                        fontFamily: "'Comic Sans MS', cursive",
+                        fontSize: "clamp(10px, 2.5vw, 12px)",
+                        fontWeight: "bold",
+                        padding: "4px 12px",
+                        borderRadius: 20,
+                        boxShadow: "0 2px 6px rgba(123,31,162,0.4)",
+                        border: "none",
+                        cursor: "pointer",
+                      }}
+                    >
                       tap to try it →
-                    </div>
-                  </a>
+                    </button>
+                  </div>
                 </div>
 
                 {/* Coming soon note */}
