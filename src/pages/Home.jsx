@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-const AVATAR_URL = "https://media.base44.com/images/public/69d72179891bde79c8a7ee1a/6027bd016_ChatGPTImageApr3202610_06_23AM.png";
+const AVATAR_URL = "https://base44.app/api/apps/69e39242fd68a250ce80b1bd/files/mp/public/69e39242fd68a250ce80b1bd/4427974ca_ChatGPTImageApr3202610_06_23AM11.png";
 
 function Pin({ color, style }) {
   return (
