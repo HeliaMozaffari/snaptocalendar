@@ -23,6 +23,10 @@ export default function Home() {
     navigate('/congratulations');
   };
 
+  const handleLetsGoClick = () => {
+    navigate('/calculator');
+  };
+
   return (
     <div style={{
       minHeight: "100vh",
@@ -221,24 +225,46 @@ export default function Home() {
                     }}>
                       Screenshot any convo and turn it into a calendar event instantly!
                     </div>
-                    <button
-                      onClick={handleTryItClick}
-                      style={{
-                        display: "inline-block",
-                        background: "#7b1fa2",
-                        color: "white",
-                        fontFamily: "'Comic Sans MS', cursive",
-                        fontSize: "clamp(10px, 2.5vw, 12px)",
-                        fontWeight: "bold",
-                        padding: "4px 12px",
-                        borderRadius: 20,
-                        boxShadow: "0 2px 6px rgba(123,31,162,0.4)",
-                        border: "none",
-                        cursor: "pointer",
-                      }}
-                    >
-                      tap to try it ✨
-                    </button>
+                    <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                      <button
+                        onClick={handleTryItClick}
+                        style={{
+                          display: "inline-block",
+                          background: "#7b1fa2",
+                          color: "white",
+                          fontFamily: "'Comic Sans MS', cursive",
+                          fontSize: "clamp(10px, 2.5vw, 12px)",
+                          fontWeight: "bold",
+                          padding: "4px 12px",
+                          borderRadius: 20,
+                          boxShadow: "0 2px 6px rgba(123,31,162,0.4)",
+                          border: "none",
+                          cursor: "pointer",
+                        }}
+                      >
+                        tap to try it ✨
+                      </button>
+
+                      {/* New button: lets go */}
+                      <button
+                        onClick={handleLetsGoClick}
+                        style={{
+                          display: "inline-block",
+                          background: "#1976d2",
+                          color: "white",
+                          fontFamily: "'Comic Sans MS', cursive",
+                          fontSize: "clamp(10px, 2.5vw, 12px)",
+                          fontWeight: "bold",
+                          padding: "4px 12px",
+                          borderRadius: 20,
+                          boxShadow: "0 2px 6px rgba(25,118,210,0.3)",
+                          border: "none",
+                          cursor: "pointer",
+                        }}
+                      >
+                        lets go
+                      </button>
+                    </div>
                   </div>
                 </div>
 
