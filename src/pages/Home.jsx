@@ -106,7 +106,7 @@ export default function Home() {
                 transform: "rotate(-1.5deg)",
                 letterSpacing: 0.5,
               }}>
-                helia &amp; lucky ✨
+                helia &amp; lucky forever ✨
               </div>
             </div>
 
@@ -149,7 +149,7 @@ export default function Home() {
                     ))}
                   </div>
                   {/* Photo */}
-                  <img src={AVATAR_URL} alt="helia & lucky" style={{
+                  <img src={AVATAR_URL} alt="helia & lucky forever" style={{
                     width: "100%",
                     height: "clamp(160px, 30vw, 220px)",
                     objectFit: "cover",
