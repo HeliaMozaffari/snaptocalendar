@@ -4,7 +4,7 @@ import { Calendar, Clock, MapPin, User, FileText, Download, RotateCcw, ChevronDo
 const confidenceInfo = (c) => {
   if (c >= 0.8) return { label: "High confidence", color: "text-green-600 bg-green-50 border-green-200" };
   if (c >= 0.5) return { label: "Medium confidence", color: "text-amber-600 bg-amber-50 border-amber-200" };
-  return { label: "Low confidence — please review", color: "text-red-500 bg-red-50 border-red-200" };
+  return { label: "Low confidence – please review", color: "text-red-500 bg-red-50 border-red-200" };
 };
 
 const pad = (n) => String(n).padStart(2, "0");
@@ -172,7 +172,7 @@ export default function AppointmentCard({ appointment, imagePreview, onReset }) 
       {/* Missing fields warning */}
       {missingFields.length > 0 && (
         <div className="bg-red-50 border border-red-400 rounded-2xl px-4 py-3">
-          <p className="text-sm font-semibold text-red-600 mb-1">⚠️ Missing required fields — please fill in before proceeding:</p>
+          <p className="text-sm font-semibold text-red-600 mb-1">⚠️ Missing required fields – please fill in before proceeding:</p>
           <ul className="list-disc list-inside text-sm text-red-500">
             {missingFields.map((f) => <li key={f}>{f}</li>)}
           </ul>
@@ -193,7 +193,7 @@ export default function AppointmentCard({ appointment, imagePreview, onReset }) 
       >
         {downloaded ? "✓ Download started!" : <><Download className="w-5 h-5" /> Add to Calendar</>}
       </button>
-      <p className="text-xs text-center text-gray-400">Downloads a .ics file — open it to add to any calendar app</p>
+      <p className="text-xs text-center text-gray-400">Downloads a .ics file – open it to add to any calendar app</p>
     </div>
   );
 }
