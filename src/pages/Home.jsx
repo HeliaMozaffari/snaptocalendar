@@ -27,7 +27,7 @@ export default function Home() {
     <div style={{
       minHeight: "100vh",
       width: "100%",
-      background: "linear-gradient(160deg, #ffb6c1 0%, #ff69b4 40%, #ff1493 100%)",
+      background: "linear-gradient(160deg, #8B6F47 0%, #6B5233 40%, #5D4A2F 100%)",
       display: "flex",
       alignItems: "flex-start",
       justifyContent: "center",
@@ -113,7 +113,7 @@ export default function Home() {
                 transform: "rotate(-1.5deg)",
                 letterSpacing: 0.5,
               }}>
-                helia &amp; lucky forever ❤️
+                helia &amp; lucky
               </div>
             </div>
 
@@ -166,57 +166,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Coming soon note */}
-                <div style={{ position: "relative" }}>
-                  <Pin color="#3498db" style={{ top: -8, left: "50%", transform: "translateX(-50%)" }} />
-                  <div style={{
-                    background: "linear-gradient(160deg, #f5f5f5, #eeeeee)",
-                    borderRadius: 3,
-                    padding: "16px 14px",
-                    boxShadow: "3px 5px 14px rgba(0,0,0,0.2)",
-                    transform: "rotate(-1.2deg)",
-                    marginTop: 4,
-                    minHeight: 80,
-                  }}>
-                    {/* Lines */}
-                    {[...Array(4)].map((_, i) => (
-                      <div key={i} style={{ height: 1, background: "#e0e0e0", marginBottom: 14 }} />
-                    ))}
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <button
-                        onClick={handleLetsGoClick}
-                        style={{
-                          display: "inline-block",
-                          background: "#1976d2",
-                          color: "white",
-                          fontFamily: "'Comic Sans MS', cursive",
-                          fontSize: "clamp(10px, 2.5vw, 12px)",
-                          fontWeight: "bold",
-                          padding: "6px 14px",
-                          borderRadius: 20,
-                          boxShadow: "0 2px 6px rgba(25,118,210,0.3)",
-                          border: "none",
-                          cursor: "pointer",
-                        }}
-                      >
-                        lets go
-                      </button>
-
-                      <p style={{
-                        fontFamily: "'Comic Sans MS', cursive",
-                        fontSize: "clamp(11px, 2.5vw, 13px)",
-                        color: "#9e9e9e",
-                        fontStyle: "italic",
-                        marginTop: -52,
-                        lineHeight: 2,
-                        marginBottom: 0,
-                      }}>
-                        wait what??
-                      </p>
-                    </div>
-                  </div>
-                </div>
 
               </div>
             </div>
