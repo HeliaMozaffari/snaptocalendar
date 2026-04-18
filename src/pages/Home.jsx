@@ -170,7 +170,7 @@ export default function Home() {
                       marginTop: -36,
                       lineHeight: 2,
                     }}>
-                      Helia m the human<br />&amp; Lucky the Bordercollie
+                      helia the human<br />&amp; Lucky the Bordercollie
                     </p>
                   </div>
                 </div>
