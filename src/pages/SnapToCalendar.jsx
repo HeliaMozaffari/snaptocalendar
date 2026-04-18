@@ -87,14 +87,14 @@ If you cannot find an appointment, still return the object with best guesses and
           </div>
           <h1 className="text-2xl font-bold text-gray-900">SnapToCalendar</h1>
           <p className="text-gray-400 text-sm mt-1">
-            Screenshot a convo → instant calendar event
+            Screenshot a convo &rarr; instant calendar event
           </p>
         </div>
 
         {loading && (
           <div className="flex flex-col items-center justify-center py-16 gap-4">
             <div className="w-10 h-10 border-4 border-violet-200 border-t-violet-600 rounded-full animate-spin" />
-            <p className="text-sm text-gray-400">Reading your screenshot…</p>
+            <p className="text-sm text-gray-400">Reading your screenshot...</p>
           </div>
         )}
 
