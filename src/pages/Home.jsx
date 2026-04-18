@@ -262,7 +262,7 @@ export default function Home() {
                       marginTop: -52,
                       lineHeight: 2,
                     }}>
-                      Im very close
+                      wait what??
                     </p>
                   </div>
                 </div>
