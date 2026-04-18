@@ -258,7 +258,7 @@ export default function Home() {
                       marginTop: -52,
                       lineHeight: 2,
                     }}>
-                      more coming soon...
+                      I made it
                     </p>
                   </div>
                 </div>
