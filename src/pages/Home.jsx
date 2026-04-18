@@ -15,6 +15,10 @@ function Pin({ color, style }) {
 }
 
 export default function Home() {
+  const handleTryItClick = () => {
+    alert("🎉 Congratulations you did it!");
+  };
+
   return (
     <div style={{
       minHeight: "100vh",
@@ -214,7 +218,7 @@ export default function Home() {
                       Screenshot any convo and turn it into a calendar event instantly!
                     </div>
                     <button
-                      onClick={() => alert("⚠️ This page does not exist yet!")}
+                      onClick={handleTryItClick}
                       style={{
                         display: "inline-block",
                         background: "#7b1fa2",
