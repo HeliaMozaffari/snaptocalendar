@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 const AVATAR_URL = "https://media.base44.com/images/public/69d72179891bde79c8a7ee1a/6027bd016_ChatGPTImageApr3202610_06_23AM.png";
 
 function Pin({ color, style }) {
@@ -15,8 +17,10 @@ function Pin({ color, style }) {
 }
 
 export default function Home() {
+  const navigate = useNavigate();
+
   const handleTryItClick = () => {
-    alert("Congratulations you did it!");
+    navigate('/congratulations');
   };
 
   return (

@@ -8,6 +8,7 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import Home from './pages/Home';
 import SnapToCalendar from './pages/SnapToCalendar';
 import AdminStats from './pages/AdminStats';
+import Congratulations from './pages/Congratulations';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -34,6 +35,7 @@ const AuthenticatedApp = () => {
       <Route path="/" element={<Home />} />
       <Route path="/snaptocalendar" element={<SnapToCalendar />} />
       <Route path="/admin/stats" element={<AdminStats />} />
+      <Route path="/congratulations" element={<Congratulations />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
