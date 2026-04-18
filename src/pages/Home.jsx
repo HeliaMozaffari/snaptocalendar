@@ -19,10 +19,6 @@ function Pin({ color, style }) {
 export default function Home() {
   const navigate = useNavigate();
 
-  const handleTryItClick = () => {
-    navigate('/congratulations');
-  };
-
   const handleLetsGoClick = () => {
     navigate('/calculator');
   };
@@ -224,28 +220,6 @@ export default function Home() {
                       marginBottom: 10,
                     }}>
                       Screenshot any convo and turn it into a calendar event instantly!
-                    </div>
-                    <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                      <button
-                        onClick={handleTryItClick}
-                        style={{
-                          display: "inline-block",
-                          background: "#7b1fa2",
-                          color: "white",
-                          fontFamily: "'Comic Sans MS', cursive",
-                          fontSize: "clamp(10px, 2.5vw, 12px)",
-                          fontWeight: "bold",
-                          padding: "4px 12px",
-                          borderRadius: 20,
-                          boxShadow: "0 2px 6px rgba(123,31,162,0.4)",
-                          border: "none",
-                          cursor: "pointer",
-                        }}
-                      >
-                        tap to try it ✨
-                      </button>
-
-                      {/* NOTE: moved the "lets go" button below (in front of the "wait what??" text) */}
                     </div>
                   </div>
                 </div>
