@@ -152,7 +152,7 @@ export default function Home() {
                     ))}
                   </div>
                   {/* Photo */}
-                  <img src={AVATAR_URL} alt="helia & lucky forever" style={{
+                  <img src="https://media.base44.com/images/public/69d72179891bde79c8a7ee1a/604e17996_ChatGPTImageApr3202610_15_57AM.png" alt="helia & lucky forever" style={{
                     width: "100%",
                     height: "clamp(160px, 30vw, 220px)",
                     objectFit: "cover",
