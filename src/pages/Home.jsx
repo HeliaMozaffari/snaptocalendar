@@ -16,7 +16,7 @@ function Pin({ color, style }) {
 
 export default function Home() {
   const handleTryItClick = () => {
-    alert("ð Congratulations you did it!");
+    alert("Ã° Congratulations you did it!");
   };
 
   return (
@@ -109,7 +109,7 @@ export default function Home() {
                 transform: "rotate(-1.5deg)",
                 letterSpacing: 0.5,
               }}>
-                helia &amp; lucky forever â¨
+                helia &amp; lucky forever Ã¢Â¨
               </div>
             </div>
 
@@ -206,7 +206,7 @@ export default function Home() {
                       color: "#4a148c",
                       marginBottom: 8,
                     }}>
-                      ð¸ SnapToCalendar
+                      Ã°Â¸ SnapToCalendar
                     </div>
                     <div style={{
                       fontFamily: "'Comic Sans MS', cursive",
@@ -233,7 +233,7 @@ export default function Home() {
                         cursor: "pointer",
                       }}
                     >
-                      tap to try it â
+                      tap to try it Ã¢
                     </button>
                   </div>
                 </div>
@@ -262,7 +262,7 @@ export default function Home() {
                       marginTop: -52,
                       lineHeight: 2,
                     }}>
-                      Im on it
+                      Im very close
                     </p>
                   </div>
                 </div>
