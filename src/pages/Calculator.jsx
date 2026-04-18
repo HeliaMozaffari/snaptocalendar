@@ -55,7 +55,7 @@ export default function Calculator() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-200 to-indigo-500 p-6">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-200 to-pink-500 p-6">
       {/* Custom Popup Modal */}
       {showPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -67,11 +67,11 @@ export default function Calculator() {
           {/* Modal */}
           <div className="relative z-10 bg-white rounded-3xl shadow-2xl p-8 max-w-sm w-full mx-4 flex flex-col items-center text-center animate-bounce-once">
             <div className="text-6xl mb-4">🎉</div>
-            <h2 className="text-3xl font-bold text-indigo-600 mb-2">You did it!</h2>
+            <h2 className="text-3xl font-bold text-pink-600 mb-2">You did it!</h2>
             <p className="text-gray-500 mb-6">The answer is 10! Amazing job! 🥳</p>
             <button
               onClick={() => setShowPopup(false)}
-              className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-2xl transition-all active:scale-95 shadow-lg"
+              className="px-8 py-3 bg-pink-600 hover:bg-pink-700 text-white font-bold rounded-2xl transition-all active:scale-95 shadow-lg"
             >
               Awesome! 🎊
             </button>
@@ -79,8 +79,8 @@ export default function Calculator() {
         </div>
       )}
 
-      <div className="bg-white p-8 rounded-3xl shadow-2xl transform rotate-1 border-4 border-indigo-100 mb-8 max-w-sm w-full">
-        <h1 className="text-2xl md:text-3xl font-bold text-indigo-600 text-center leading-tight mb-6">
+      <div className="bg-white p-8 rounded-3xl shadow-2xl transform rotate-1 border-4 border-pink-100 mb-8 max-w-sm w-full">
+        <h1 className="text-2xl md:text-3xl font-bold text-pink-600 text-center leading-tight mb-6">
           Calculator
         </h1>
 
@@ -92,24 +92,24 @@ export default function Calculator() {
 
         {/* Calculator Keys */}
         <div className="grid grid-cols-4 gap-2">
-          <CalcButton onClick={clear} className="bg-indigo-100 text-indigo-600 col-span-2">AC</CalcButton>
-          <CalcButton onClick={() => handleOperator('/')} className="bg-indigo-500 text-white">÷</CalcButton>
-          <CalcButton onClick={() => handleOperator('*')} className="bg-indigo-500 text-white">×</CalcButton>
+          <CalcButton onClick={clear} className="bg-pink-100 text-pink-600 col-span-2">AC</CalcButton>
+          <CalcButton onClick={() => handleOperator('/')} className="bg-pink-500 text-white">÷</CalcButton>
+          <CalcButton onClick={() => handleOperator('*')} className="bg-pink-500 text-white">×</CalcButton>
 
           {[7, 8, 9].map(n => (
             <CalcButton key={n} onClick={() => handleNumber(String(n))} className="bg-slate-100 text-slate-700">{n}</CalcButton>
           ))}
-          <CalcButton onClick={() => handleOperator('-')} className="bg-indigo-500 text-white">-</CalcButton>
+          <CalcButton onClick={() => handleOperator('-')} className="bg-pink-500 text-white">-</CalcButton>
 
           {[4, 5, 6].map(n => (
             <CalcButton key={n} onClick={() => handleNumber(String(n))} className="bg-slate-100 text-slate-700">{n}</CalcButton>
           ))}
-          <CalcButton onClick={() => handleOperator('+')} className="bg-indigo-500 text-white">+</CalcButton>
+          <CalcButton onClick={() => handleOperator('+')} className="bg-pink-500 text-white">+</CalcButton>
 
           {[1, 2, 3].map(n => (
             <CalcButton key={n} onClick={() => handleNumber(String(n))} className="bg-slate-100 text-slate-700">{n}</CalcButton>
           ))}
-          <CalcButton onClick={calculate} className="bg-indigo-600 text-white row-span-2">=</CalcButton>
+          <CalcButton onClick={calculate} className="bg-pink-600 text-white row-span-2">=</CalcButton>
 
           <CalcButton onClick={() => handleNumber('0')} className="bg-slate-100 text-slate-700 col-span-2">0</CalcButton>
           <CalcButton onClick={() => handleNumber('.')} className="bg-slate-100 text-slate-700">.</CalcButton>

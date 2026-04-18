@@ -166,12 +166,12 @@ export default function Home() {
 
                 {/* Calculate button sticky note */}
                 <div style={{ position: "relative" }}>
-                  <Pin color="#3498db" style={{ top: -8, left: "50%", transform: "translateX(-50%)" }} />
+                  <Pin color="#ec4899" style={{ top: -8, left: "50%", transform: "translateX(-50%)" }} />
                   <div
                     onClick={() => navigate('/calculator')}
                     style={{
                       display: "block",
-                      background: "linear-gradient(160deg, #e3f2fd, #bbdefb 80%, #90caf9)",
+                      background: "linear-gradient(160deg, #fce7f3, #fbcfe8 80%, #f9a8d4)",
                       borderRadius: 3,
                       padding: "18px 16px 16px",
                       boxShadow: "3px 5px 14px rgba(0,0,0,0.25), 1px 2px 4px rgba(0,0,0,0.1)",
@@ -184,7 +184,7 @@ export default function Home() {
                       fontFamily: "'Comic Sans MS', 'Chalkboard SE', cursive",
                       fontSize: "clamp(15px, 4vw, 20px)",
                       fontWeight: "bold",
-                      color: "#1565c0",
+                      color: "#db2777",
                       marginBottom: 8,
                     }}>
                       🧮 Calculate
@@ -200,7 +200,7 @@ export default function Home() {
                     </div>
                     <button
                       style={{
-                        background: "#1565c0",
+                        background: "#db2777",
                         color: "white",
                         border: "none",
                         borderRadius: 8,
