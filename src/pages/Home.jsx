@@ -245,25 +245,7 @@ export default function Home() {
                         tap to try it ✨
                       </button>
 
-                      {/* New button: lets go */}
-                      <button
-                        onClick={handleLetsGoClick}
-                        style={{
-                          display: "inline-block",
-                          background: "#1976d2",
-                          color: "white",
-                          fontFamily: "'Comic Sans MS', cursive",
-                          fontSize: "clamp(10px, 2.5vw, 12px)",
-                          fontWeight: "bold",
-                          padding: "4px 12px",
-                          borderRadius: 20,
-                          boxShadow: "0 2px 6px rgba(25,118,210,0.3)",
-                          border: "none",
-                          cursor: "pointer",
-                        }}
-                      >
-                        lets go
-                      </button>
+                      {/* NOTE: moved the "lets go" button below (in front of the "wait what??" text) */}
                     </div>
                   </div>
                 </div>
@@ -284,16 +266,39 @@ export default function Home() {
                     {[...Array(4)].map((_, i) => (
                       <div key={i} style={{ height: 1, background: "#e0e0e0", marginBottom: 14 }} />
                     ))}
-                    <p style={{
-                      fontFamily: "'Comic Sans MS', cursive",
-                      fontSize: "clamp(11px, 2.5vw, 13px)",
-                      color: "#9e9e9e",
-                      fontStyle: "italic",
-                      marginTop: -52,
-                      lineHeight: 2,
-                    }}>
-                      wait what??
-                    </p>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                      <button
+                        onClick={handleLetsGoClick}
+                        style={{
+                          display: "inline-block",
+                          background: "#1976d2",
+                          color: "white",
+                          fontFamily: "'Comic Sans MS', cursive",
+                          fontSize: "clamp(10px, 2.5vw, 12px)",
+                          fontWeight: "bold",
+                          padding: "6px 14px",
+                          borderRadius: 20,
+                          boxShadow: "0 2px 6px rgba(25,118,210,0.3)",
+                          border: "none",
+                          cursor: "pointer",
+                        }}
+                      >
+                        lets go
+                      </button>
+
+                      <p style={{
+                        fontFamily: "'Comic Sans MS', cursive",
+                        fontSize: "clamp(11px, 2.5vw, 13px)",
+                        color: "#9e9e9e",
+                        fontStyle: "italic",
+                        marginTop: -52,
+                        lineHeight: 2,
+                        marginBottom: 0,
+                      }}>
+                        wait what??
+                      </p>
+                    </div>
                   </div>
                 </div>
 
