@@ -124,65 +124,7 @@ export default function Home() {
               gap: 20,
             }}>
 
-              {/* Big notepad with photo */}
-              <div style={{ position: "relative", alignSelf: "start" }}>
-                <Pin color="#f39c12" style={{ top: -8, left: "50%", transform: "translateX(-50%)" }} />
-                <div style={{
-                  background: "white",
-                  borderRadius: "3px 3px 2px 2px",
-                  boxShadow: "3px 6px 18px rgba(0,0,0,0.3), 1px 2px 4px rgba(0,0,0,0.15)",
-                  overflow: "hidden",
-                  transform: "rotate(-2deg)",
-                  marginTop: 4,
-                }}>
-                  {/* Spiral binding */}
-                  <div style={{
-                    background: "linear-gradient(180deg, #e0e0e0, #bdbdbd)",
-                    height: 20,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: 8,
-                    borderBottom: "1px solid #9e9e9e",
-                  }}>
-                    {[...Array(9)].map((_, i) => (
-                      <div key={i} style={{
-                        width: 11, height: 11,
-                        borderRadius: "50%",
-                        border: "2px solid #757575",
-                        background: "linear-gradient(135deg, #fff, #e0e0e0)",
-                        boxShadow: "inset 0 1px 2px rgba(0,0,0,0.2)",
-                      }} />
-                    ))}
-                  </div>
-                  {/* Photo */}
-                  <img src="https://media.base44.com/images/public/69d72179891bde79c8a7ee1a/604e17996_ChatGPTImageApr3202610_15_57AM.png" alt="helia & lucky forever" style={{
-                    width: "100%",
-                    height: "clamp(160px, 30vw, 220px)",
-                    objectFit: "cover",
-                    display: "block",
-                  }} />
-                  {/* Lined section */}
-                  <div style={{ padding: "10px 12px 12px 30px", position: "relative", background: "white" }}>
-                    <div style={{
-                      position: "absolute", left: 22, top: 0, bottom: 0,
-                      width: 1.5, background: "#ffcdd2",
-                    }} />
-                    {[...Array(3)].map((_, i) => (
-                      <div key={i} style={{ height: 1, background: "#bbdefb", marginBottom: 13 }} />
-                    ))}
-                    <p style={{
-                      fontFamily: "'Comic Sans MS', cursive",
-                      fontSize: "clamp(10px, 2.5vw, 13px)",
-                      color: "#37474f",
-                      marginTop: -36,
-                      lineHeight: 2,
-                    }}>
-                      helia m the human<br />&amp; Lucky the Bordercollie
-                    </p>
-                  </div>
-                </div>
-              </div>
+
 
               {/* Right column */}
               <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
