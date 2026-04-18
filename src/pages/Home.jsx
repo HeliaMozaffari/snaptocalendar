@@ -187,7 +187,7 @@ export default function Home() {
                       color: "#db2777",
                       marginBottom: 8,
                     }}>
-                      🧮 Calculate
+                      🧮 Calculate now
                     </div>
                     <div style={{
                       fontFamily: "'Comic Sans MS', cursive",
@@ -212,7 +212,7 @@ export default function Home() {
                         boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
                       }}
                     >
-                      Calculate
+                      calculate now
                     </button>
                   </div>
                 </div>
