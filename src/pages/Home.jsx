@@ -127,6 +127,7 @@ export default function Home() {
                 <div style={{ position: "relative" }}>
                   <Pin color="#2ecc71" style={{ top: -8, left: "50%", transform: "translateX(-50%)" }} />
                   <div
+                    onClick={() => navigate('/snaptocalendar')}
                     style={{
                       display: "block",
                       background: "linear-gradient(160deg, #fff9c4, #fff176 80%, #ffee58)",
@@ -157,6 +158,26 @@ export default function Home() {
                     }}>
                       Screenshot any convo and turn it into a calendar event instantly!
                     </div>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigate('/snaptocalendar');
+                      }}
+                      style={{
+                        background: "#4a148c",
+                        color: "white",
+                        border: "none",
+                        borderRadius: 8,
+                        padding: "8px 20px",
+                        fontFamily: "'Comic Sans MS', cursive",
+                        fontWeight: "bold",
+                        fontSize: 14,
+                        cursor: "pointer",
+                        boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+                      }}
+                    >
+                      Open SnapToCalendar 📅
+                    </button>
                   </div>
                 </div>
 
