@@ -85,7 +85,7 @@ export default function Home() {
             {/* Header row: logo + brand name */}
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
               <div style={{ position: "relative", flexShrink: 0 }}>
-                <Pin color="#e74c3c" style={{ top: -6, left: "50%", transform: "translateX(-50%)" }} />
+                <Pin color="#ffffff" style={{ top: -6, left: "50%", transform: "translateX(-50%)" }} />
                 <div style={{
                   width: 52, height: 52,
                   borderRadius: "50%",
