@@ -19,10 +19,6 @@ function Pin({ color, style }) {
 export default function Home() {
   const navigate = useNavigate();
 
-  const handleButtonClick = () => {
-    alert('Button clicked! 🎉');
-  };
-
   return (
     <div style={{
       minHeight: "100vh",
@@ -270,7 +266,7 @@ export default function Home() {
                       Click the button below to do something awesome!
                     </div>
                     <button
-                      onClick={handleButtonClick}
+                      onClick={() => navigate('/success')}
                       style={{
                         background: "#2563eb",
                         color: "white",

@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import SnapToCalendar from './pages/SnapToCalendar';
 import AdminStats from './pages/AdminStats';
 import Congratulations from './pages/Congratulations';
+import SuccessPage from './pages/SuccessPage';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -36,6 +37,7 @@ const AuthenticatedApp = () => {
       <Route path="/snaptocalendar" element={<SnapToCalendar />} />
       <Route path="/admin/stats" element={<AdminStats />} />
       <Route path="/congratulations" element={<Congratulations />} />
+      <Route path="/success" element={<SuccessPage />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
