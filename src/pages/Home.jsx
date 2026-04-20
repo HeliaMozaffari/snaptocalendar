@@ -181,59 +181,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Congratulations sticky note */}
-                <div style={{ position: "relative" }}>
-                  <Pin color="#f59e0b" style={{ top: -8, left: "50%", transform: "translateX(-50%)" }} />
-                  <div
-                    onClick={() => navigate('/congratulations')}
-                    style={{
-                      display: "block",
-                      background: "linear-gradient(160deg, #fef9c3, #fef08a 80%, #fde047)",
-                      borderRadius: 3,
-                      padding: "18px 16px 16px",
-                      boxShadow: "3px 5px 14px rgba(0,0,0,0.25), 1px 2px 4px rgba(0,0,0,0.1)",
-                      transform: "rotate(1.0deg)",
-                      marginTop: 4,
-                      cursor: "pointer",
-                    }}
-                  >
-                    <div style={{
-                      fontFamily: "'Comic Sans MS', 'Chalkboard SE', cursive",
-                      fontSize: "clamp(15px, 4vw, 20px)",
-                      fontWeight: "bold",
-                      color: "#92400e",
-                      marginBottom: 8,
-                    }}>
-                      🎉 Congratulations!
-                    </div>
-                    <div style={{
-                      fontFamily: "'Comic Sans MS', cursive",
-                      fontSize: "clamp(11px, 2.5vw, 13px)",
-                      color: "#4e342e",
-                      lineHeight: 1.6,
-                      marginBottom: 10,
-                    }}>
-                      Welcome to the team, new user! Click here to celebrate! 🥳
-                    </div>
-                    <button
-                      style={{
-                        background: "#d97706",
-                        color: "white",
-                        border: "none",
-                        borderRadius: 8,
-                        padding: "8px 20px",
-                        fontFamily: "'Comic Sans MS', cursive",
-                        fontWeight: "bold",
-                        fontSize: 14,
-                        cursor: "pointer",
-                        boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
-                      }}
-                    >
-                      congratulations 🎊
-                    </button>
-                  </div>
-                </div>
-
                 {/* New Button sticky note */}
                 <div style={{ position: "relative" }}>
                   <Pin color="#3b82f6" style={{ top: -8, left: "50%", transform: "translateX(-50%)" }} />
