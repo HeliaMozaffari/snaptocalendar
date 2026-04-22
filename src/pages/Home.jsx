@@ -164,7 +164,7 @@ export default function Home() {
                         navigate('/snaptocalendar');
                       }}
                       style={{
-                        background: "#2ecc71",
+                        background: "#3b82f6",
                         color: "white",
                         border: "none",
                         borderRadius: 8,
