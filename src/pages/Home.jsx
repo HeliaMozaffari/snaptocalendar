@@ -181,58 +181,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* New Button sticky note */}
-                <div style={{ position: "relative" }}>
-                  <Pin color="#ec4899" style={{ top: -8, left: "50%", transform: "translateX(-50%)" }} />
-                  <div
-                    style={{
-                      background: "linear-gradient(160deg, #fce7f3, #fbcfe8 80%, #f9a8d4)",
-                      borderRadius: 3,
-                      padding: "18px 16px 16px",
-                      boxShadow: "3px 5px 14px rgba(0,0,0,0.25), 1px 2px 4px rgba(0,0,0,0.1)",
-                      transform: "rotate(-1.2deg)",
-                      marginTop: 4,
-                    }}
-                  >
-                    <div style={{
-                      fontFamily: "'Comic Sans MS', 'Chalkboard SE', cursive",
-                      fontSize: "clamp(15px, 4vw, 20px)",
-                      fontWeight: "bold",
-                      color: "#9d174d",
-                      marginBottom: 8,
-                    }}>
-                      ✨ New Button
-                    </div>
-                    <div style={{
-                      fontFamily: "'Comic Sans MS', cursive",
-                      fontSize: "clamp(11px, 2.5vw, 13px)",
-                      color: "#be185d",
-                      lineHeight: 1.6,
-                      marginBottom: 10,
-                    }}>
-                      Click the button below to do something awesome!
-                    </div>
-                    <button
-                      onClick={() => navigate('/success')}
-                      style={{
-                        background: "#ec4899",
-                        color: "white",
-                        border: "none",
-                        borderRadius: 8,
-                        padding: "8px 20px",
-                        fontFamily: "'Comic Sans MS', cursive",
-                        fontWeight: "bold",
-                        fontSize: 14,
-                        cursor: "pointer",
-                        boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
-                        transition: "transform 0.1s",
-                      }}
-                    >
-                      Click Me! ✨
-                    </button>
-                  </div>
-                </div>
-
               </div>
             </div>
           </div>
